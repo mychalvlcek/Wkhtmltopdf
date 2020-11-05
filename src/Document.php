@@ -202,7 +202,7 @@ class Document implements Nette\Application\IResponse
 	 * @return void
 	 * @throws Nette\InvalidStateException
 	 */
-	public function send(Nette\Http\IRequest $httpRequest, Nette\Http\IResponse $httpResponse): void
+	public function send(Nette\Http\IRequest $httpRequest, Nette\Http\IResponse $httpResponse)
 	{
 		$this->convert();
 
@@ -232,7 +232,7 @@ class Document implements Nette\Application\IResponse
 	 * @return void
 	 * @throws Nette\InvalidStateException
 	 */
-	public function save(string $file): void
+	public function save(string $file)
 	{
 		$f = fopen($file, 'w');
 		$this->convert();
@@ -264,7 +264,7 @@ class Document implements Nette\Application\IResponse
 	/**
 	 * @return void
 	 */
-	private function convert(): void
+	private function convert()
 	{
 		$args = [
 			'-q' => null,
@@ -306,7 +306,7 @@ class Document implements Nette\Application\IResponse
 	/**
 	 * @return void
 	 */
-	private function close(): void
+	private function close()
 	{
 		$this->process->close();
 

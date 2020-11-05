@@ -50,7 +50,7 @@ class Process
 	 * @return void
 	 * @throws RuntimeException
 	 */
-	public function open(array $args): void
+	public function open(array $args)
 	{
 		if ($this->executable === null) {
 			$this->executable = (string) new Utils\ExecutableFinder();
@@ -86,7 +86,7 @@ class Process
 	/**
 	 * @return void
 	 */
-	public function printOutput(): void
+	public function printOutput()
 	{
 		fpassthru($this->pipes[1]);
 	}
@@ -110,7 +110,7 @@ class Process
 	 * @param resource
 	 * @return void
 	 */
-	public function copyOutputTo($stream): void
+	public function copyOutputTo($stream)
 	{
 		stream_copy_to_stream($this->pipes[1], $stream);
 	}
@@ -129,7 +129,7 @@ class Process
 	 * @return void
 	 * @throws \RuntimeException
 	 */
-	public function close(): void
+	public function close()
 	{
 		$this->getOutput();// wait for process
 		$error = $this->getErrorOutput();
